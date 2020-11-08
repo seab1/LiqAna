@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>932</width>
-    <height>590</height>
+    <width>929</width>
+    <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>10</y>
       <width>951</width>
       <height>531</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab1_calcOpt">
      <attribute name="title">
@@ -1099,7 +1099,7 @@ wartości parametrów</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>932</width>
+     <width>929</width>
      <height>26</height>
     </rect>
    </property>

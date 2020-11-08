@@ -3,9 +3,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    LiqAna_common(false)
 {
-    ui->setupUi(this);
+    ui -> setupUi(this);
 }
 
 MainWindow::~MainWindow()
