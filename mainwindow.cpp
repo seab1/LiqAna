@@ -3,10 +3,13 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    LiqAna_common(false)
+    LiqAna_common(false),
+    ui(new Ui::MainWindow)
 {
     ui -> setupUi(this);
+
+    //Działanie konstruktora:
+
 }
 
 MainWindow::~MainWindow()

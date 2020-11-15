@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     qcustomplot.cpp \
-    liqana_common.cpp
+    liqana_common.cpp \
+    visuals_mainwindow_tab1.cpp
 
 HEADERS += \
         mainwindow.h \
     qcustomplot.h \
-    liqana_common.h
+    liqana_common.h \
+    visuals_mainwindow_tab1.h
 
 FORMS += \
         mainwindow.ui

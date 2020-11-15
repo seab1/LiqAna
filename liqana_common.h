@@ -17,6 +17,7 @@ public:
     bool getSaveNeeded();
     void setSaveNeeded(bool saveNeeded);
 
+    //Metody:
     QString pointerTranslate(QString toTranslate);
     QString setExactRange(QString valFieldText, double bottomVal, double topVal);
     QString properValidator(QString valFieldText);
