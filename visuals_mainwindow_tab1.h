@@ -1,9 +1,13 @@
 #ifndef VISUALS_MAINWINDOW_TAB1_H
 #define VISUALS_MAINWINDOW_TAB1_H
 
-#include <QString>
+#include "liqana_common.h"
 
-class Visuals_MainWindow_tab1 //Klasa zawierająca opcje wizualne i mechaniczne zakładki 1 okna głównego
+#include <QString>
+#include <QComboBox>
+#include <QLineEdit>
+
+class Visuals_MainWindow_tab1 : public LiqAna_common //Klasa zawierająca opcje wizualne i mechaniczne zakładki 1 okna głównego
 {
 private:
     //Atrybuty:
@@ -46,6 +50,14 @@ public:
 
     QString getpa();
     void setpa(QString pa);
+
+    //Walidatory:
+    void validateValue(QLineEdit *valField, double bottomVal, double topVal);
+    void validateSelection(int oldPos, int newPos, QLineEdit *valField);
+
+    //Metody:
+    void backToDefault(QComboBox *drawer_MSF, QComboBox *drawer_rd, QComboBox *drawer_Ksigma, QComboBox *drawer_volumStrainMethod, QLineEdit *valField_MSF,
+                       QLineEdit *valField_Kalfa, QLineEdit *valField_M, QLineEdit *valField_g, QLineEdit *valField_aMax, QLineEdit *valField_pa);
 };
 
 #endif // VISUALS_MAINWINDOW_TAB1_H

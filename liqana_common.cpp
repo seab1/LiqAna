@@ -15,7 +15,6 @@ QString LiqAna_common::pointerTranslate(QString toTranslate)
         int pointerIndex = toTranslate.indexOf(",");
         return toTranslate.replace(pointerIndex, 1, ".");
     }
-
     else if(toTranslate.contains("."))
     {
         int pointerIndex = toTranslate.indexOf(".");
@@ -28,17 +27,17 @@ QString LiqAna_common::pointerTranslate(QString toTranslate)
 QString LiqAna_common::setExactRange(QString valFieldText, double bottomVal, double topVal)
 {
     valFieldText = LiqAna_common::pointerTranslate(valFieldText);
+
     if(valFieldText.toDouble() >= topVal)
     {
         return QString::number(topVal, 'f', 2);
     }
-
     else if(valFieldText.toDouble() < bottomVal)
     {
         return QString::number(bottomVal, 'f', 2);
     }
 
-    return valFieldText;
+    return QString::number(valFieldText.toDouble(), 'f', 2);
 }
 
 QString LiqAna_common::properValidator(QString valFieldText)
