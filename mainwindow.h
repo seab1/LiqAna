@@ -24,6 +24,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    //Metody:
+    void initiate();
+
 private slots:
     //Zakładka 1:
     //Walidacja pól wartości:
@@ -50,6 +53,10 @@ private slots:
     void on_valField_pa_editingFinished();
     void on_valField_pa_cursorPositionChanged(int oldPos, int newPos);
     void on_valField_pa_textChanged();
+
+    void on_button_backToDefault_clicked();
+
+    void on_drawer_MSF_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;

@@ -1,11 +1,20 @@
 #include "liqana_common.h"
 
 //Konstruktor:
-LiqAna_common::LiqAna_common(bool saveNeeded) {LiqAna_common::saveNeeded = saveNeeded;}
+LiqAna_common::LiqAna_common(bool saveNeeded)
+{
+    this -> saveNeeded = saveNeeded;
+
+    double2Decimals = new QDoubleValidator();
+    this -> double2Decimals -> setNotation(QDoubleValidator::StandardNotation);
+    this -> double2Decimals -> setDecimals(2);
+}
 
 //Gettery i settery:
-bool LiqAna_common::getSaveNeeded() {return LiqAna_common::saveNeeded;}
-void LiqAna_common::setSaveNeeded(bool saveNeeded) {LiqAna_common::saveNeeded = saveNeeded;}
+bool LiqAna_common::getSaveNeeded() {return this -> saveNeeded;}
+void LiqAna_common::setSaveNeeded(bool saveNeeded) {this -> saveNeeded = saveNeeded;}
+
+QDoubleValidator *LiqAna_common::getDouble2Decimals() {return this -> double2Decimals;}
 
 //Metody:
 QString LiqAna_common::pointerTranslate(QString toTranslate)
@@ -26,7 +35,7 @@ QString LiqAna_common::pointerTranslate(QString toTranslate)
 
 QString LiqAna_common::setExactRange(QString valFieldText, double bottomVal, double topVal)
 {
-    valFieldText = LiqAna_common::pointerTranslate(valFieldText);
+    valFieldText = this -> pointerTranslate(valFieldText);
 
     if(valFieldText.toDouble() >= topVal)
     {

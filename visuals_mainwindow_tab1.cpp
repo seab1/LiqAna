@@ -63,16 +63,48 @@ void Visuals_MainWindow_tab1::validateSelection(int oldPos, int newPos, QLineEdi
     if(newPos < valueLength) valField -> setSelection(0, valueLength);
 }
 
+//Opcje aktywacji pola wartości MSF:
+void Visuals_MainWindow_tab1::ifEnableUserMSF(int index, QLineEdit *valField_MSF)
+{
+    if(index == 3) valField_MSF -> setEnabled(true);
+    else
+    {
+        valField_MSF -> setText("");
+        valField_MSF -> setEnabled(false);
+    }
+}
+
 //Metody:
-void Visuals_MainWindow_tab1::backToDefault(QComboBox *drawer_MSF, QComboBox *drawer_rd, QComboBox *drawer_Ksigma, QComboBox *drawer_volumStrainMethod,
-                                            QLineEdit *valField_MSF, QLineEdit *valField_Kalfa, QLineEdit *valField_M, QLineEdit *valField_g,
+void Visuals_MainWindow_tab1::initiate(QComboBox *drawer_MSF, QComboBox *drawer_rd, QComboBox *drawer_Ksigma, QComboBox *drawer_volumStrainMethod,
+                                       QLineEdit *valField_MSF, QLineEdit *valField_Kalfa, QLineEdit *valField_M, QLineEdit *valField_g,
+                                       QLineEdit *valField_aMax, QLineEdit *valField_pa)
+{
+    drawer_MSF -> setCurrentIndex(this -> MSFMethodChoice);
+    drawer_rd -> setCurrentIndex(this -> rdMethodChoice);
+    drawer_Ksigma -> setCurrentIndex(this -> KsigmaMethodChoice);
+    drawer_volumStrainMethod -> setCurrentIndex(this -> volumStrainMethodChoice);
+
+    valField_MSF -> setValidator(this -> getDouble2Decimals());
+
+    valField_Kalfa -> setValidator(this -> getDouble2Decimals());
+    valField_Kalfa -> setText(this -> Kalfa);
+
+    valField_M -> setValidator(this -> getDouble2Decimals());
+    valField_M -> setText(this -> M);
+
+    valField_g -> setValidator(this -> getDouble2Decimals());
+    valField_g -> setText(this -> g);
+
+    valField_aMax -> setValidator(this -> getDouble2Decimals());
+    valField_aMax -> setText(this -> aMax);
+
+    valField_pa -> setValidator(this -> getDouble2Decimals());
+    valField_pa -> setText(this -> pa);
+}
+
+void Visuals_MainWindow_tab1::backToDefault(QLineEdit *valField_Kalfa, QLineEdit *valField_M, QLineEdit *valField_g,
                                             QLineEdit *valField_aMax, QLineEdit *valField_pa)
 {
-    drawer_MSF -> setCurrentIndex(0);
-    drawer_rd -> setCurrentIndex(0);
-    drawer_Ksigma -> setCurrentIndex(0);
-    drawer_volumStrainMethod -> setCurrentIndex(0);
-    valField_MSF -> setText("1,00");
     valField_Kalfa -> setText("1,00");
     valField_M -> setText("7,50");
     valField_g -> setText("9,81");

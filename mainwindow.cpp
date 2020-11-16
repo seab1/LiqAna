@@ -9,11 +9,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui -> setupUi(this);
 
     //Działanie konstruktora:
+    this -> initiate();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+//Metody:
+void MainWindow::initiate()
+{
+    visuals_MainWindow_tab1.initiate(ui -> drawer_MSF, ui -> drawer_rd, ui -> drawer_Ksigma, ui -> drawer_volumStrainMethod, ui -> valField_MSF,
+                                     ui -> valField_Kalfa, ui -> valField_M, ui -> valField_g, ui -> valField_aMax, ui -> valField_pa);
 }
 
 //Metody silnika:
@@ -42,3 +50,10 @@ void MainWindow::on_valField_aMax_textChanged() {this -> setSaveNeeded(true);}
 void MainWindow::on_valField_pa_editingFinished() {visuals_MainWindow_tab1.validateValue(ui -> valField_pa, 0.01, 1000.00);}
 void MainWindow::on_valField_pa_cursorPositionChanged(int oldPos, int newPos) {visuals_MainWindow_tab1.validateSelection(oldPos, newPos, ui -> valField_pa);}
 void MainWindow::on_valField_pa_textChanged() {this -> setSaveNeeded(true);}
+
+//Opcje aktywacji pola wartości MSF:
+void MainWindow::on_drawer_MSF_currentIndexChanged(int index) {visuals_MainWindow_tab1.ifEnableUserMSF(index, ui -> valField_MSF);}
+
+//Powrót parametrów do wartości domyślnych:
+void MainWindow::on_button_backToDefault_clicked() {visuals_MainWindow_tab1.backToDefault(ui -> valField_Kalfa, ui -> valField_M, ui -> valField_g,
+                                                                                          ui -> valField_aMax, ui ->valField_pa);}
