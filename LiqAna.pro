@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     qcustomplot.cpp \
     liqana_common.cpp \
-    visuals_mainwindow_tab1.cpp
+    visuals_mainwindow_tab1.cpp \
+    visuals_mainwindow_tab2.cpp
 
 HEADERS += \
         mainwindow.h \
     qcustomplot.h \
     liqana_common.h \
-    visuals_mainwindow_tab1.h
+    visuals_mainwindow_tab1.h \
+    visuals_mainwindow_tab2.h
 
 FORMS += \
         mainwindow.ui

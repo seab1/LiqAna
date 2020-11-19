@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QDoubleValidator>
+#include <QLineEdit>
 
 
 class LiqAna_common //Klasa zawierająca globalne parametry wizualizacji i walidacji
@@ -21,6 +22,10 @@ public:
     void setSaveNeeded(bool saveNeeded);
 
     QDoubleValidator *getDouble2Decimals();
+
+    //Walidatory:
+    void validateValue(QLineEdit *valField, double bottomVal, double topVal);
+    void validateSelection(int oldPos, int newPos, QLineEdit *valField);
 
     //Metody:
     QString pointerTranslate(QString toTranslate);

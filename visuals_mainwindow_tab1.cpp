@@ -17,7 +17,7 @@ Visuals_MainWindow_tab1::Visuals_MainWindow_tab1(int MSFMethodChoice, int rdMeth
 }
 
 //Gettery i settery:
-int Visuals_MainWindow_tab1::getMSFMethodChoice() {return this -> getMSFMethodChoice();}
+int Visuals_MainWindow_tab1::getMSFMethodChoice() {return this -> MSFMethodChoice;}
 void Visuals_MainWindow_tab1::setMSFMethodChoice(int MSFMethodChoice) {this -> MSFMethodChoice = MSFMethodChoice;}
 
 int Visuals_MainWindow_tab1::getrdMethodChoice() {return this -> rdMethodChoice;}
@@ -46,22 +46,6 @@ void Visuals_MainWindow_tab1::setaMax(QString aMax) {this -> aMax = aMax;}
 
 QString Visuals_MainWindow_tab1::getpa() {return this -> pa;}
 void Visuals_MainWindow_tab1::setpa(QString pa) {this -> pa = pa;}
-
-//Walidatory:
-void Visuals_MainWindow_tab1::validateValue(QLineEdit *valField, double bottomVal, double topVal)
-{
-   QString value = valField -> text();
-   valField -> setText(this -> pointerTranslate(this -> setExactRange(value, bottomVal, topVal)));
-   if(value == valField -> text()) valField -> setText(this -> properValidator(valField -> text()));
-   valField -> deselect();
-}
-
-void Visuals_MainWindow_tab1::validateSelection(int oldPos, int newPos, QLineEdit *valField)
-{
-    int valueLength = valField -> text().length();
-    if(oldPos == valueLength) valField -> setSelection(valueLength, valueLength);
-    if(newPos < valueLength) valField -> setSelection(0, valueLength);
-}
 
 //Opcje aktywacji pola wartości MSF:
 void Visuals_MainWindow_tab1::ifEnableUserMSF(int index, QLineEdit *valField_MSF)

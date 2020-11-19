@@ -3,6 +3,7 @@
 
 #include "liqana_common.h"
 #include "visuals_mainwindow_tab1.h"
+#include "visuals_mainwindow_tab2.h"
 
 #include <QDebug>
 #include <QMainWindow>
@@ -18,6 +19,7 @@ class MainWindow : public QMainWindow, public LiqAna_common
 private:
     //Klasy pomniejsze:
     Visuals_MainWindow_tab1 visuals_MainWindow_tab1;
+    Visuals_MainWindow_tab2 visuals_MainWindow_tab2;
 
 public:
     //Konstruktor i destruktor:

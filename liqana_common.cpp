@@ -16,6 +16,22 @@ void LiqAna_common::setSaveNeeded(bool saveNeeded) {this -> saveNeeded = saveNee
 
 QDoubleValidator *LiqAna_common::getDouble2Decimals() {return this -> double2Decimals;}
 
+//Walidatory:
+void LiqAna_common::validateValue(QLineEdit *valField, double bottomVal, double topVal)
+{
+   QString value = valField -> text();
+   valField -> setText(this -> pointerTranslate(this -> setExactRange(value, bottomVal, topVal)));
+   if(value == valField -> text()) valField -> setText(this -> properValidator(valField -> text()));
+   valField -> deselect();
+}
+
+void LiqAna_common::validateSelection(int oldPos, int newPos, QLineEdit *valField)
+{
+    int valueLength = valField -> text().length();
+    if(oldPos == valueLength) valField -> setSelection(valueLength, valueLength);
+    if(newPos < valueLength) valField -> setSelection(0, valueLength);
+}
+
 //Metody:
 QString LiqAna_common::pointerTranslate(QString toTranslate)
 {

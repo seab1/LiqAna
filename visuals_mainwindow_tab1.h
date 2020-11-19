@@ -16,9 +16,9 @@ private:
 
 public:
     //Konstruktor:
-    explicit Visuals_MainWindow_tab1(int MSFMethodChoice = 0, int rdMethodChoice = 0, int KsigmaMethodChoice = 0, int volumStrainMethodChoice = 0,
-                                     QString MSF = "1,00", QString Kalfa = "1,00", QString M = "7,50", QString g = "9,81", QString aMax = "0,90",
-                                     QString pa = "101,33");
+    Visuals_MainWindow_tab1(int MSFMethodChoice = 0, int rdMethodChoice = 0, int KsigmaMethodChoice = 0, int volumStrainMethodChoice = 0,
+                            QString MSF = "1,00", QString Kalfa = "1,00", QString M = "7,50", QString g = "9,81", QString aMax = "0,90",
+                            QString pa = "101,33");
 
     //Gettery i settery:
     int getMSFMethodChoice();
@@ -50,10 +50,6 @@ public:
 
     QString getpa();
     void setpa(QString pa);
-
-    //Walidatory:
-    void validateValue(QLineEdit *valField, double bottomVal, double topVal);
-    void validateSelection(int oldPos, int newPos, QLineEdit *valField);
 
     //Opcje aktywacji pola wartości MSF:
     void ifEnableUserMSF(int index, QLineEdit *valField_MSF);
