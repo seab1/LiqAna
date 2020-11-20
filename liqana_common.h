@@ -1,10 +1,15 @@
 #ifndef LIQANA_COMMON_H
 #define LIQANA_COMMON_H
 
+#include <cmath>
+#include <QDebug>
 #include <QString>
 #include <QDoubleValidator>
 #include <QLineEdit>
-
+#include <QComboBox>
+#include <QCheckBox>
+#include <QLabel>
+#include <QMainWindow>
 
 class LiqAna_common //Klasa zawierająca globalne parametry wizualizacji i walidacji
 {

@@ -22,6 +22,7 @@ void MainWindow::initiate()
 {
     visuals_MainWindow_tab1.initiate(ui -> drawer_MSF, ui -> drawer_rd, ui -> drawer_Ksigma, ui -> drawer_volumStrainMethod, ui -> valField_MSF,
                                      ui -> valField_Kalfa, ui -> valField_M, ui -> valField_g, ui -> valField_aMax, ui -> valField_pa);
+    visuals_MainWindow_tab2.initiate(ui -> valField_assumedDepth, ui -> valField_waterTableDepth, ui -> valField_readingsInterval, ui -> label_requiredReadingsNumber);
 }
 
 //Metody silnika:
@@ -57,3 +58,29 @@ void MainWindow::on_drawer_MSF_currentIndexChanged(int index) {visuals_MainWindo
 //Powrót parametrów do wartości domyślnych:
 void MainWindow::on_button_backToDefault_clicked() {visuals_MainWindow_tab1.backToDefault(ui -> valField_Kalfa, ui -> valField_M, ui -> valField_g,
                                                                                           ui -> valField_aMax, ui ->valField_pa);}
+
+//Zakładka 2:
+//Walidacja pól wartości:
+void MainWindow::on_valField_assumedDepth_editingFinished()
+{
+    this -> validateValue(ui -> valField_assumedDepth, 0.01, 100.00);
+    visuals_MainWindow_tab2.depthsFixer(ui -> valField_assumedDepth, ui -> valField_readingsInterval);
+    visuals_MainWindow_tab2.requiredReadingsNumberCalculator(ui -> valField_assumedDepth, ui -> valField_readingsInterval, ui -> label_requiredReadingsNumber);
+}
+
+void MainWindow::on_valField_assumedDepth_cursorPositionChanged(int oldPos, int newPos) {this -> validateSelection(oldPos, newPos, ui -> valField_assumedDepth);}
+void MainWindow::on_valField_assumedDepth_textChanged() {this -> setSaveNeeded(true);}
+
+void MainWindow::on_valField_waterTableDepth_editingFinished() {this -> validateValue(ui -> valField_waterTableDepth, 0.00, 100.00);}
+void MainWindow::on_valField_waterTableDepth_cursorPositionChanged(int oldPos, int newPos) {this -> validateSelection(oldPos, newPos, ui -> valField_waterTableDepth);}
+void MainWindow::on_valField_waterTableDepth_textChanged(){this -> setSaveNeeded(true);}
+
+void MainWindow::on_valField_readingsInterval_editingFinished()
+{
+    this -> validateValue(ui -> valField_readingsInterval, 0.01, 0.50);
+    visuals_MainWindow_tab2.depthsFixer(ui -> valField_assumedDepth, ui -> valField_readingsInterval);
+    visuals_MainWindow_tab2.requiredReadingsNumberCalculator(ui -> valField_assumedDepth, ui -> valField_readingsInterval, ui -> label_requiredReadingsNumber);
+}
+
+void MainWindow::on_valField_readingsInterval_cursorPositionChanged(int oldPos, int newPos) {this -> validateSelection(oldPos, newPos, ui -> valField_readingsInterval);}
+void MainWindow::on_valField_readingsInterval_textChanged() {this -> setSaveNeeded(true);}

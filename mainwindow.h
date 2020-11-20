@@ -5,9 +5,6 @@
 #include "visuals_mainwindow_tab1.h"
 #include "visuals_mainwindow_tab2.h"
 
-#include <QDebug>
-#include <QMainWindow>
-
 namespace Ui {
 class MainWindow;
 }
@@ -56,10 +53,26 @@ private slots:
     void on_valField_pa_cursorPositionChanged(int oldPos, int newPos);
     void on_valField_pa_textChanged();
 
-    void on_button_backToDefault_clicked();
-
+    //Opcje aktywacji pola wartości MSF:
     void on_drawer_MSF_currentIndexChanged(int index);
 
+    //Powrót parametrów do wartości domyślnych:
+    void on_button_backToDefault_clicked();
+
+    //Zakładka 2:
+    //Walidacja pól wartości:
+    void on_valField_assumedDepth_editingFinished();
+    void on_valField_assumedDepth_cursorPositionChanged(int oldPos, int newPos);
+    void on_valField_assumedDepth_textChanged();
+    
+    void on_valField_waterTableDepth_editingFinished();
+    void on_valField_waterTableDepth_cursorPositionChanged(int oldPos, int newPos);
+    void on_valField_waterTableDepth_textChanged();
+    
+    void on_valField_readingsInterval_editingFinished();
+    void on_valField_readingsInterval_cursorPositionChanged(int oldPos, int newPos);
+    void on_valField_readingsInterval_textChanged();
+    
 private:
     Ui::MainWindow *ui;
 };

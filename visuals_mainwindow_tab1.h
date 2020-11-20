@@ -3,10 +3,6 @@
 
 #include "liqana_common.h"
 
-#include <QString>
-#include <QComboBox>
-#include <QLineEdit>
-
 class Visuals_MainWindow_tab1 : public LiqAna_common //Klasa zawierająca opcje wizualne i mechaniczne zakładki 1 okna głównego
 {
 private:

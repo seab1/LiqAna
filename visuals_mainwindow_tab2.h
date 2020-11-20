@@ -3,10 +3,6 @@
 
 #include "liqana_common.h"
 
-#include <QString>
-#include <QLineEdit>
-
-
 class Visuals_MainWindow_tab2 : public LiqAna_common //Klasa zawierająca opcje wizualne i mechaniczne zakładki 2 okna głównego
 {
 private:
@@ -26,6 +22,14 @@ public:
 
     QString getReadingsInterval();
     void setReadingsInterval(QString readingsInterval);
+
+    //Wizualizatory pól wartości i opisów:
+    void depthsFixer(QLineEdit *valField_assumedDepth, QLineEdit *valField_readingsInterval);
+    void requiredReadingsNumberCalculator(QLineEdit *valField_assumedDepth, QLineEdit *valField_readingsInterval, QLabel *label_requiredReadingsNumber);
+
+    //Metody:
+    void initiate(QLineEdit *valField_assumedDepth, QLineEdit *valField_waterTableDepth, QLineEdit *valField_readingsInterval,
+                  QLabel *label_requiredReadingsNumber);
 };
 
 #endif // VISUALS_MAINWINDOW_TAB2_H
