@@ -8,6 +8,7 @@
 #include <QDoubleValidator>
 #include <QString>
 
+#include <QMessageBox>
 #include <QDialog>
 #include <QMainWindow>
 #include <QStatusBar>

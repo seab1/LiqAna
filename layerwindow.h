@@ -37,6 +37,7 @@ public:
 
     //Metody:
     void initiate();
+    void putValues(int valueRow, QString value);
 
 private slots:
     //Metody silnika:

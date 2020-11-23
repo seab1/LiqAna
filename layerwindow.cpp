@@ -46,6 +46,24 @@ void LayerWindow::initiate()
     ui -> valField_FC -> setValidator(this -> getDouble2Decimals());
 }
 
+void LayerWindow::putValues(int valueRow, QString value)
+{
+    switch(valueRow)
+    {
+        case 1:
+        ui -> valField_layerName -> setText(value);
+        break;
+
+        case 2:
+        ui -> valField_layerThickness -> setText(value);
+        break;
+
+        case 3:
+        ui -> valField_FC -> setText(value);
+        break;
+    }
+}
+
 //Metody pól silnika:
 //Walidacja pól wartości:
 void LayerWindow::on_valField_layerName_cursorPositionChanged(int oldPos, int newPos) {this -> validateSelection(oldPos, newPos, ui -> valField_layerName);}
@@ -59,10 +77,22 @@ void LayerWindow::on_valField_FC_cursorPositionChanged(int oldPos, int newPos) {
 //Działanie przycisków:
 void LayerWindow::on_LayerWindow_button_OK_clicked()
 {
-
+    if((ui -> valField_layerName -> text().isEmpty() || (ui -> valField_layerName -> text() == ","))
+     || ((ui -> valField_layerThickness -> text().isEmpty()) || (ui -> valField_layerThickness -> text() == ","))
+     || ((ui -> valField_FC -> text().isEmpty()) || (ui -> valField_FC -> text() == ","))) QMessageBox::warning(this, "Błąd!", "Nie wszystkie parametry mają poprawnie przypisane wartości!");
+    else
+    {
+        this -> closeMode = 1;
+        this -> close();
+    }
 }
 
 void LayerWindow::on_LayerWindow_button_cancel_clicked()
 {
+    ui -> valField_layerName -> clear();
+    ui -> valField_layerThickness -> clear();
+    ui -> valField_FC -> clear();
 
+    this -> closeMode = 2;
+    this -> close();
 }
