@@ -18,6 +18,9 @@ void Visuals_MainWindow_tab2::setWaterTableDepth(QString waterTableDepth) {this 
 QString Visuals_MainWindow_tab2::getReadingsInterval() {return this -> readingsInterval;}
 void Visuals_MainWindow_tab2::setReadingsInterval(QString readingsInterval) {this -> readingsInterval = readingsInterval;}
 
+LiqAna_layerList Visuals_MainWindow_tab2::getLayerList() {return this -> layerList;}
+void Visuals_MainWindow_tab2::setLayerList(LiqAna_layerList layerList) {this -> layerList = layerList;}
+
 //Wizualizatory pól wartości i opisów:
 void Visuals_MainWindow_tab2::depthsFixer(QLineEdit *valField_assumedDepth, QLineEdit *valField_readingsInterval)
 {

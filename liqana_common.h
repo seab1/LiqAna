@@ -4,12 +4,20 @@
 #include <cmath>
 #include <QDebug>
 #include <QString>
+#include <QStringList>
+#include <QList>
 #include <QDoubleValidator>
 #include <QLineEdit>
 #include <QComboBox>
 #include <QCheckBox>
 #include <QLabel>
+#include <QHeaderView>
+#include <QTreeWidget>
+#include <QTableView>
+#include <QStandardItemModel>
+#include <QStandardItem>
 #include <QMainWindow>
+#include <QStatusBar>
 
 class LiqAna_common //Klasa zawierająca globalne parametry wizualizacji i walidacji
 {

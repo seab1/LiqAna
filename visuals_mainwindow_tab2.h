@@ -2,12 +2,14 @@
 #define VISUALS_MAINWINDOW_TAB2_H
 
 #include "liqana_common.h"
+#include "liqana_layerlist.h"
 
 class Visuals_MainWindow_tab2 : public LiqAna_common //Klasa zawierająca opcje wizualne i mechaniczne zakładki 2 okna głównego
 {
 private:
     //Atrybuty:
     QString assumedDepth, waterTableDepth, readingsInterval;
+    LiqAna_layerList layerList;
 
 public:
     //Konstruktor:
@@ -22,6 +24,9 @@ public:
 
     QString getReadingsInterval();
     void setReadingsInterval(QString readingsInterval);
+
+    LiqAna_layerList getLayerList();
+    void setLayerList(LiqAna_layerList layerList);
 
     //Wizualizatory pól wartości i opisów:
     void depthsFixer(QLineEdit *valField_assumedDepth, QLineEdit *valField_readingsInterval);

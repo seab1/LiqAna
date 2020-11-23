@@ -23,6 +23,7 @@ void MainWindow::initiate()
     visuals_MainWindow_tab1.initiate(ui -> drawer_MSF, ui -> drawer_rd, ui -> drawer_Ksigma, ui -> drawer_volumStrainMethod, ui -> valField_MSF,
                                      ui -> valField_Kalfa, ui -> valField_M, ui -> valField_g, ui -> valField_aMax, ui -> valField_pa);
     visuals_MainWindow_tab2.initiate(ui -> valField_assumedDepth, ui -> valField_waterTableDepth, ui -> valField_readingsInterval, ui -> label_requiredReadingsNumber);
+    visuals_MainWindow_tab2.getLayerList().initiate(ui -> list_layers);
 }
 
 //Metody silnika:
