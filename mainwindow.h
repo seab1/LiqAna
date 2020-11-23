@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "layerwindow.h"
+
 #include "liqana_common.h"
 #include "visuals_mainwindow_tab1.h"
 #include "visuals_mainwindow_tab2.h"
@@ -14,6 +16,9 @@ class MainWindow : public QMainWindow, public LiqAna_common
     Q_OBJECT
 
 private:
+    //Pozostałe okna programu:
+    LayerWindow layerWindow;
+
     //Klasy pomniejsze:
     Visuals_MainWindow_tab1 visuals_MainWindow_tab1;
     Visuals_MainWindow_tab2 visuals_MainWindow_tab2;
@@ -27,6 +32,7 @@ public:
     void initiate();
 
 private slots:
+    //Metody silnika:
     //Zakładka 1:
     //Walidacja pól wartości:
     void on_valField_MSF_editingFinished();

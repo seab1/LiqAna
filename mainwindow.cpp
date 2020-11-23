@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//Konstruktor i destruktor:
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     LiqAna_common(),

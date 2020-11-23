@@ -2,22 +2,28 @@
 #define LIQANA_COMMON_H
 
 #include <cmath>
+
 #include <QDebug>
-#include <QString>
-#include <QStringList>
-#include <QList>
+#include <QKeyEvent>
 #include <QDoubleValidator>
+#include <QString>
+
+#include <QDialog>
+#include <QMainWindow>
+#include <QStatusBar>
+
+#include <QList>
+#include <QStringList>
 #include <QLineEdit>
 #include <QComboBox>
 #include <QCheckBox>
 #include <QLabel>
+
 #include <QHeaderView>
 #include <QTreeWidget>
 #include <QTableView>
 #include <QStandardItemModel>
 #include <QStandardItem>
-#include <QMainWindow>
-#include <QStatusBar>
 
 class LiqAna_common //Klasa zawierająca globalne parametry wizualizacji i walidacji
 {

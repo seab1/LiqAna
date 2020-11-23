@@ -30,7 +30,8 @@ SOURCES += \
     liqana_common.cpp \
     visuals_mainwindow_tab1.cpp \
     visuals_mainwindow_tab2.cpp \
-    liqana_layerlist.cpp
+    liqana_layerlist.cpp \
+    layerwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,9 @@ HEADERS += \
     liqana_common.h \
     visuals_mainwindow_tab1.h \
     visuals_mainwindow_tab2.h \
-    liqana_layerlist.h
+    liqana_layerlist.h \
+    layerwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    layerwindow.ui
