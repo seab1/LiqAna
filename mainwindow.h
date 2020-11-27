@@ -7,9 +7,7 @@
 #include "visuals_mainwindow_tab1.h"
 #include "visuals_mainwindow_tab2.h"
 
-namespace Ui {
-class MainWindow;
-}
+namespace Ui {class MainWindow;}
 
 class MainWindow : public QMainWindow, public LiqAna_common
 {
@@ -79,6 +77,12 @@ private slots:
     void on_valField_readingsInterval_cursorPositionChanged(int oldPos, int newPos);
     void on_valField_readingsInterval_textChanged();
     
+    void on_button_newLayer_clicked();
+    void on_button_editLayer_clicked();
+    void on_button_deleteLayer_clicked();
+    void on_button_moveUp_clicked();
+    void on_button_moveDown_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

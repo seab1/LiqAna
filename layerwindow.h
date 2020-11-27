@@ -3,9 +3,7 @@
 
 #include "liqana_common.h"
 
-namespace Ui {
-class LayerWindow;
-}
+namespace Ui {class LayerWindow;}
 
 class LayerWindow : public QDialog, public LiqAna_common
 {
@@ -13,31 +11,37 @@ class LayerWindow : public QDialog, public LiqAna_common
 
 private:
     //Atrybuty:
-    int layerNumber, openMode, closeMode;
+    int closeMode;
     //openMode - tryb otwarcia okna; 1 - dodawanie nowej warstwy, 2 - edycja wybranej warstwy
     //closeMode - tryb zamknięcia warstwy; 1 - zatwierdzenie zmian, 2 - anulowanie zmian
+    QString currentLayerName, currentLayerThickness, currentFC;
 
 public:
     //Działanie po przyciśnięciu przycisku ESC na klawiaturze:
     virtual void keyPressEvent(QKeyEvent *event);
 
     //Konstruktor i destruktor:
-    explicit LayerWindow(QWidget *parent = 0, int layerNumber = 1, int openMode = 1, int closeMode = 1);
+    explicit LayerWindow(QWidget *parent = 0, int closeMode = 1);
     ~LayerWindow();
 
     //Gettery i settery:
-    int getLayerNumber();
-    void setLayerNumber(int layerNumber);
-
-    int getOpenMode();
-    void setOpenMode(int openMode);
-
     int getCloseMode();
     void setCloseMode(int closeMode);
 
+    QString getCurrentLayerName();
+    void setCurrentLayerName(QString currentLayerName);
+
+    QString getCurrentLayerThickness();
+    void setCurrentLayerThickness(QString currentLayerName);
+
+    QString getCurrentFC();
+    void setCurrentFC(QString currentLayerName);
+
     //Metody:
     void initiate();
-    void putValues(int valueRow, QString value);
+    void putValues(int valFieldNumber, QString value);
+    void clearCurrents();
+    void clearFields();
 
 private slots:
     //Metody silnika:

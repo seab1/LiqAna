@@ -86,3 +86,74 @@ void MainWindow::on_valField_readingsInterval_editingFinished()
 
 void MainWindow::on_valField_readingsInterval_cursorPositionChanged(int oldPos, int newPos) {this -> validateSelection(oldPos, newPos, ui -> valField_readingsInterval);}
 void MainWindow::on_valField_readingsInterval_textChanged() {this -> setSaveNeeded(true);}
+
+//Działanie przycisków:
+void MainWindow::on_button_newLayer_clicked()
+{
+    this -> layerWindow.clearFields();
+    int numberOfLayers = this -> visuals_MainWindow_tab2.getLayerList().getNumberOfLayers() + 1;
+    this -> layerWindow.putValues(1, "Warstwa " + QString::number(numberOfLayers));
+    this -> layerWindow.setWindowTitle("Nowa warstwa");
+    this -> layerWindow.setModal(true);
+    this -> layerWindow.exec();
+
+    if(this -> layerWindow.getCloseMode() == 1)
+    {
+        this -> visuals_MainWindow_tab2.getLayerList().addLayer(ui -> list_layers, this -> layerWindow.getCurrentLayerName(),
+                                                                this -> layerWindow.getCurrentLayerThickness(), this -> layerWindow.getCurrentFC());
+        this -> layerWindow.clearCurrents();
+        this -> setSaveNeeded(true);
+    }
+}
+
+void MainWindow::on_button_editLayer_clicked()
+{
+    this -> layerWindow.clearFields();
+
+    if(ui -> list_layers -> isItemSelected(ui -> list_layers -> currentItem()))
+    {
+        this -> layerWindow.putValues(1, ui -> list_layers -> currentItem() -> text(1));
+        this -> layerWindow.putValues(2, ui -> list_layers -> currentItem() -> text(2));
+        this -> layerWindow.putValues(3, ui -> list_layers -> currentItem() -> text(3));
+        this -> layerWindow.setWindowTitle("Edytuj warstwę");
+        this -> layerWindow.setModal(true);
+        this -> layerWindow.exec();
+
+        if(this -> layerWindow.getCloseMode() == 1)
+        {
+            this -> visuals_MainWindow_tab2.getLayerList().editLayer(ui -> list_layers -> currentItem(), this -> layerWindow.getCurrentLayerName(),
+                                                                    this -> layerWindow.getCurrentLayerThickness(), this -> layerWindow.getCurrentFC());
+            this -> layerWindow.clearCurrents();
+            this -> setSaveNeeded(true);
+        }
+    }
+}
+
+void MainWindow::on_button_deleteLayer_clicked()
+{
+    if(ui -> list_layers -> isItemSelected(ui -> list_layers -> currentItem()))
+    {
+        this -> visuals_MainWindow_tab2.getLayerList().deleteLayer(ui -> list_layers, ui -> list_layers -> currentItem());
+        this -> setSaveNeeded(true);
+    }
+}
+
+void MainWindow::on_button_moveUp_clicked()
+{
+    if(ui -> list_layers -> isItemSelected(ui -> list_layers -> currentItem())
+    && ui -> list_layers -> indexOfTopLevelItem(ui -> list_layers -> currentItem()) != 0)
+    {
+        this -> visuals_MainWindow_tab2.getLayerList().moveLayerUp(ui -> list_layers, ui -> list_layers -> currentItem());
+        this -> setSaveNeeded(true);
+    }
+}
+
+void MainWindow::on_button_moveDown_clicked()
+{
+    if(ui -> list_layers -> isItemSelected(ui -> list_layers -> currentItem())
+    && ui -> list_layers -> indexOfTopLevelItem(ui -> list_layers -> currentItem()) != ui -> list_layers -> topLevelItemCount() - 1)
+    {
+        this -> visuals_MainWindow_tab2.getLayerList().moveLayerDown(ui -> list_layers, ui -> list_layers -> currentItem());
+        this -> setSaveNeeded(true);
+    }
+}

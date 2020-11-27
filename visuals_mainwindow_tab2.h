@@ -25,8 +25,7 @@ public:
     QString getReadingsInterval();
     void setReadingsInterval(QString readingsInterval);
 
-    LiqAna_layerList getLayerList();
-    void setLayerList(LiqAna_layerList layerList);
+    LiqAna_layerList &getLayerList();
 
     //Wizualizatory pól wartości i opisów:
     void depthsFixer(QLineEdit *valField_assumedDepth, QLineEdit *valField_readingsInterval);
